@@ -21,14 +21,14 @@ public class CalendarHelper {
 		return df.format(new Timestamp(date.getTimeInMillis()));
 	}
 
-	public static Calendar timestampToCalendar(long timestamp) {
+	public static Calendar parse(long timestamp) {
 		Calendar cal = Calendar.getInstance(Locale.getDefault());
 		cal.setTimeInMillis(timestamp);
 		cal.set(Calendar.MILLISECOND, 0);
 		return cal;
 	}
 
-	public static Calendar timestampToCalendar(long timestamp, String timeZone) {
+	public static Calendar parse(long timestamp, String timeZone) {
 		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timeZone), Locale.getDefault());
 		//Calendar cal = Calendar.getInstance(Locale.getDefault());
 		//cal.setTimeZone(TimeZone.getTimeZone(timeZone));

@@ -44,33 +44,33 @@ public class MainActivity extends AppCompatActivity {
 
 		public void fetchEvents() {
 			List<Planification> eventsList = new ArrayList<Planification>();
-			
+
 			String timeZone;
 			Calendar startDate;
 			Calendar endDate;
 
 			// 2020-26-10 09:00 -> 17:00 UTC
 			// no specified timeZone : event is displayed
-			startDate = CalendarHelper.timestampToCalendar(Long.parseLong("1603702800")*1000);
-			endDate = CalendarHelper.timestampToCalendar(Long.parseLong("1603731600")*1000);
+			startDate = CalendarHelper.parse(Long.parseLong("1603702800")*1000);
+			endDate = CalendarHelper.parse(Long.parseLong("1603731600")*1000);
 			eventsList.add(new Planification("Event 1", startDate, endDate));
 
 			// 2020-27-10 09:00 -> 17:00 UTC
 			timeZone  = "GMT"; // event is displayed
-			startDate = CalendarHelper.timestampToCalendar(Long.parseLong("1603789200")*1000, timeZone);
-			endDate = CalendarHelper.timestampToCalendar(Long.parseLong("1603818000")*1000, timeZone);
+			startDate = CalendarHelper.parse(Long.parseLong("1603789200")*1000, timeZone);
+			endDate = CalendarHelper.parse(Long.parseLong("1603818000")*1000, timeZone);
 			eventsList.add(new Planification("Event 2", startDate, endDate));
 
 			// 2020-28-10 09:00 -> 17:00 UTC
 			timeZone  = "GMT+2"; // event is NOT displayed
-			startDate = CalendarHelper.timestampToCalendar(Long.parseLong("1603875600")*1000, timeZone);
-			endDate = CalendarHelper.timestampToCalendar(Long.parseLong("1603904400")*1000, timeZone);
+			startDate = CalendarHelper.parse(Long.parseLong("1603875600")*1000, timeZone);
+			endDate = CalendarHelper.parse(Long.parseLong("1603904400")*1000, timeZone);
 			eventsList.add(new Planification("Event 3", startDate, endDate));
 
 			// 2020-29-10 09:00 -> 17:00 UTC
-			timeZone  = "Europe/Paris"; // event is NOT displayed
-			startDate = CalendarHelper.timestampToCalendar(Long.parseLong("1603962000")*1000, timeZone);
-			endDate = CalendarHelper.timestampToCalendar(Long.parseLong("1603990800")*1000, timeZone);
+			timeZone  = "America/Los_Angeles"; // event is NOT displayed
+			startDate = CalendarHelper.parse(Long.parseLong("1603962000")*1000, timeZone);
+			endDate = CalendarHelper.parse(Long.parseLong("1603990800")*1000, timeZone);
 			eventsList.add(new Planification("Event 4", startDate, endDate));
 
 			if (events == null) {
